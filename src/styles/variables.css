@@ -1,0 +1,23 @@
+
+:root {
+  /* Colors */
+  --color-background: #F6F0FC;
+  --color-lavender: #E8DDF5;
+  --color-lilac: #C8A9E8;
+  --color-purple: #674582;
+  --color-text: #30263A;
+  --color-white: #FFFFFF;
+  --color-pink: #EBD6E8;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Layout */
+  --container-width: 1200px;
+  --page-padding: 24px;
+
+  /* Effects */
+  --transition-default: 300ms ease;
+  --radius-card: 16px;
+}

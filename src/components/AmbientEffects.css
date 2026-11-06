@@ -1,0 +1,193 @@
+.ambient-effects {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-effects__florals {
+  position: absolute;
+  inset: 0;
+}
+
+.ambient-effects__lily {
+  position: absolute;
+  width: clamp(180px, 27vw, 360px);
+  overflow: visible;
+  opacity: 0.3;
+  filter: drop-shadow(0 12px 18px rgba(139, 103, 140, 0.12));
+  animation: ambientLilySway 9s ease-in-out infinite;
+}
+
+.ambient-effects__lily--left {
+  top: 17%;
+  left: -5%;
+  transform: rotate(-12deg);
+}
+
+.ambient-effects__lily--right {
+  right: -5%;
+  bottom: 8%;
+  opacity: 0.23;
+  transform: rotate(164deg) scale(0.82);
+  animation-delay: -4s;
+}
+
+.ambient-effects__petal {
+  fill: rgba(255, 250, 250, 0.88);
+  stroke: rgba(203, 151, 174, 0.72);
+  stroke-width: 1.5;
+}
+
+.ambient-effects__stem,
+.ambient-effects__leaf {
+  fill: none;
+  stroke: rgba(129, 151, 120, 0.7);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ambient-effects__leaf {
+  fill: rgba(180, 198, 161, 0.22);
+}
+
+.ambient-effects__stamen {
+  fill: none;
+  stroke: rgba(198, 159, 108, 0.82);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ambient-effects__pollen,
+.ambient-effects__anther {
+  fill: #e7c783;
+}
+
+.ambient-effects__hearts {
+  position: absolute;
+  inset: 0;
+}
+
+.ambient-effects__heart {
+  position: absolute;
+  bottom: -24px;
+  left: var(--heart-left);
+  color: rgba(255, 104, 121, 0.76);
+  font-size: var(--heart-size);
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(255, 105, 125, 0.48);
+  animation: ambientHeartBubble var(--heart-duration) ease-in-out var(--heart-delay) infinite;
+  will-change: transform, opacity;
+}
+
+.ambient-effects__stars {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 30vh;
+  min-height: 150px;
+  max-height: 250px;
+}
+
+.ambient-effects__star {
+  position: absolute;
+  top: var(--star-top);
+  left: var(--star-left);
+  color: rgba(255, 220, 126, 0.78);
+  font-size: var(--star-size);
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(255, 224, 142, 0.5);
+  animation: ambientStarDrift 4.2s ease-in-out var(--star-delay) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes ambientHeartBubble {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-12deg) scale(0.55);
+  }
+
+  10% {
+    opacity: 0.82;
+    transform: translate3d(0, -5vh, 0) rotate(5deg) scale(1.05);
+  }
+
+  32% {
+    transform: translate3d(var(--heart-drift), -25vh, 0) rotate(8deg) scale(0.92);
+  }
+
+  58% {
+    opacity: 0.76;
+    transform: translate3d(0, -48vh, 0) rotate(-8deg) scale(1.12);
+  }
+
+  82% {
+    opacity: 0.56;
+    transform: translate3d(var(--heart-drift), -68vh, 0) rotate(10deg) scale(0.96);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -88vh, 0) rotate(14deg) scale(0.72);
+  }
+}
+
+@keyframes ambientStarDrift {
+  0%, 100% {
+    opacity: 0.38;
+    transform: translate3d(0, 0, 0) scale(0.78) rotate(-8deg);
+  }
+
+  35% {
+    opacity: 0.92;
+    transform: translate3d(var(--star-drift), -7px, 0) scale(1.18) rotate(12deg);
+  }
+
+  68% {
+    opacity: 0.58;
+    transform: translate3d(var(--star-drift), 5px, 0) scale(0.92) rotate(-5deg);
+  }
+}
+
+@keyframes ambientLilySway {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ambient-effects__lily {
+    width: 210px;
+    opacity: 0.18;
+  }
+
+  .ambient-effects__lily--left {
+    top: 12%;
+    left: -95px;
+  }
+
+  .ambient-effects__lily--right {
+    right: -105px;
+    bottom: 4%;
+    opacity: 0.16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-effects__lily {
+    animation-duration: 18s;
+  }
+
+  .ambient-effects__heart {
+    animation-duration: 14s;
+  }
+
+  .ambient-effects__star {
+    animation-duration: 8s;
+  }
+}

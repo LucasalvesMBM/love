@@ -1,0 +1,64 @@
+.relationship-counter {
+  position: fixed;
+  z-index: 15;
+  top: 184px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(234, 223, 249, 0.9);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 6px 20px rgba(103, 69, 130, 0.1);
+  color: #766b80;
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  line-height: 1;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.relationship-counter:active {
+  cursor: grabbing;
+}
+
+.relationship-counter__heart {
+  color: #e88799;
+  font-size: 11px;
+  animation: relationshipCounterBeat 2.4s ease-in-out infinite;
+}
+
+.relationship-counter__separator {
+  color: #c58eae;
+}
+
+@keyframes relationshipCounterBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 600px) {
+  .relationship-counter {
+    top: 184px;
+    right: 10px;
+    gap: 5px;
+    padding: 7px 10px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relationship-counter__heart {
+    animation: none;
+  }
+}
